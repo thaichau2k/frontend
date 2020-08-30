@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bài tập về nhà</title>
+    <script>
+      var searchlist=[];
+      var list=[['Châu','x','','x',2],
+      ['Quốc','','','x',1],
+      ['Giang','x','x','x',3],
+      ['Vương','x','x','',2],
+      ['Tâm','','','',0]];
+
+      function displayTable() {
+        var my_table = "<table>";
+        var row = 0;
+        var col;
+        for (row = 0; row < list.length; row++) {
+          my_table += "<tr>";
+
+          for (col = 0; col < list[row].length-1; col++) {
+            my_table += "<td>" + list[row][col] + "</td>";
+          }
+
+          my_table += "</tr>";
+        }
+
+        my_table += "</table>";
+
+        return my_table;
+      }
+
+      function orderTable(){
+        list.sort();
+        var my_table = "<table width='60%' style='margin: auto'>";
+        var row = 0;
+        var col;
+        for (row = 0; row < list.length; row++) {
+          my_table += "<tr>";
+
+          for (col = 0; col < list[row].length-1; col++) {
+            my_table += "<td>" + list[row][col] + "</td>";
+          }
+
+          my_table += "</tr>";
+        }
+
+        my_table += "</table>";
+
+        return document.getElementById('list').innerHTML=my_table;
+      }
+
+      function hiddenTable() {
+        document.getElementById('list').innerHTML="";
+      }
+      //creates a listener for when you press a key
+      window.onkeyup = keyup;
+
+      //creates a global Javascript variable
+      var inputTextValue;
+
+      function keyup(e) {
+        //setting your input text to the global Javascript Variable for every key press
+        inputTextValue = e.target.value;
+
+        //listens for you to press the ENTER key, at which point your web address will change to the one you have input in the search box
+        if (e.keyCode == 13) {
+          for(i=0;i<5;i++){
+            if(list[i][0]==inputTextValue) searchlist=list[i];
+          }
+          var my_table = "<table width='60%' style='margin: auto'>";
+          my_table += "<tr>";
+          for(i=0;i<searchlist.length-1;i++) {
+            my_table += "<td>" + searchlist[i] + "</td>";
+          }
+          my_table += "</tr>";
+          my_table += "</table>";
+
+          return document.getElementById('list').innerHTML=my_table;
+          console.log(searchlist);
+          console.log(inputTextValue);
+        }
+      }
+    </script>
+    <style>
+  table, th, td {
+    margin: auto;
+    width: 25%;
+    border: 1px solid black;   
+    text-align: center;
+  }
+  td {
+    width:25%;
+  }
+  button {
+    border-radius: 0.4px;
+    margin: auto;
+  }
+  input {
+    width: 300px;
+  }
+    </style>
+  </head>
+  <body>
+    <button type="button" onclick="document.getElementById('list').innerHTML = displayTable()">Display</button>
+    <button type="button" onclick="hiddenTable()">Hidden</button>
+    <button type="button" onclick="orderTable()">A-Z</button>
+    <input type="text" placeholder="Gõ tên xong hay bấm enter" id="textbox">
+    <p id="list"></p>
+  </body>
+</html>
