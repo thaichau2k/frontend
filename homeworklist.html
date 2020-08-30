@@ -31,20 +31,7 @@
 
       function orderTable(){
         list.sort();
-        var my_table = "<table width='60%' style='margin: auto'>";
-        var row = 0;
-        var col;
-        for (row = 0; row < list.length; row++) {
-          my_table += "<tr>";
-
-          for (col = 0; col < list[row].length-1; col++) {
-            my_table += "<td>" + list[row][col] + "</td>";
-          }
-
-          my_table += "</tr>";
-        }
-
-        my_table += "</table>";
+        var my_table = displayTable();
 
         return document.getElementById('list').innerHTML=my_table;
       }
