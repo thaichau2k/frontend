@@ -1,7 +1,7 @@
 body {
     position: static;
     background-color: black;
-    background-image: url(../image/stella.jpg);
+    background-image: url(./stella.jpg);
     background-position: initial;
     background-repeat: no-repeat;
     background-size: cover;
