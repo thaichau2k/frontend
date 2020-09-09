@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="../T3H/css/logindiv.css">
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <form action="http://google.com" id="myForm">
+            <div class="frame">
+                <div class="email">
+                    <label for="email">Email</label> <br />
+                    <input type="email" id="email" class="myclass"
+                        placeholder="abcxyz@aaa.bbb"
+                        onchange="validate()">
+                    <p class="a display-none" id="pemail">This email is
+                        invalid!</p>
+                </div>
+                <div class="pass">
+                    <label for="pass">Password</label> <br />
+                    <input type="password" id="pass" class="myclass"
+                        placeholder="8-16 character; has '@' ('$', '*', '-')"
+                        onchange="validate()">
+                    <p class="a display-none" id="ppass">This password is
+                        invalid!</p>
+                </div>
+                <div class="row2">
+                    <label for="address">Address</label> <br />
+                    <input type="text" id="address" placeholder="1234 Main St"
+                        class="myclass" onchange="validate()">
+                    <p class="a display-none" id="paddress">This address is
+                        invalid!</p>
+                </div>
+                <div class="row3">
+                    <label for="address2">Address 2</label> <br />
+                    <input type="text" id="address2"
+                        placeholder="Apartment, studio, or floor"
+                        class="myclass"
+                        onchange="validate()">
+                    <p class="a display-none" id="paddress2">This address is
+                        invalid!</p>
+                </div>
+                <div class="row4">
+                    <div class="city">
+                        <label for="city">City</label> <br />
+                        <input type="text" id="city" class="myclass"
+                            onchange="validate()">
+                        <p class="a display-none" id="pcity">This city is
+                            invalid!</p>
+                    </div>
+                    <div class="state">
+                        <label for="state">State</label> <br />
+                        <select id="state">
+                            <option value="" disabled selected>Choose...</option>
+                            <option value="1">One option</option>
+                            <option value="2">Another option</option>
+                        </select>
+                    </div>
+                    <div class="z">
+                        <label for="z">Zip</label> <br />
+                        <input type="number" id="z" class="myclass"
+                            placeholder="1000-5000"
+                            onchange="validate()">
+                        <p class="a display-none" id="pz">This zip is invalid!</p>
+                    </div>
+                </div>
+                <div class="row5">
+                    <input type="checkbox" id="check">
+                    <label for="check">Check me out</label> <br>
+                    <input
+                        type="button"
+                        value="Submit"
+                        id="sign-in-btn"
+                        onclick="signin()">
+                </div>
+            </div>
+        </form>
+        <script>
+            var signInBtn = document.getElementById("sign-in-btn");
+            var isError = false;
+
+            function isEmailInvalid() {
+                var input = document.getElementById('email');
+                // check email length
+                if(input.value.length < 1 && input.value.length > 80) return true;
+                // check @
+                var x = input.value.indexOf("@");
+                if(x==-1 || x==0) return true;
+                return false;
+            }
+
+            function isPasswordInvalid() {
+                var input = document.getElementById('pass');
+                var x = input.value.indexOf('@');
+                var y = input.value.indexOf('$');
+                var z = input.value.indexOf('*');
+                var t = input.value.indexOf('-');
+                // check password length
+                if(input.value.length < 8 && input.value.length > 16) return true;
+                // check '@','$','*'
+                else if(x==-1 && y==-1 && z==-1 && t==-1) return true;
+                return false;
+            } 
+
+            function isZipInvalid() {
+                var input = document.getElementById('z');
+                // check zip value
+                if(Number(input.value) < 1000 || Number(input.value) > 5000) return true;
+                else return false;
+            }
+
+            function validate() {
+                    
+                var inputList = document.getElementsByClassName("myclass");
+               
+                for (var input of inputList) {
+                    if (input.value.trim() != "") {
+                    
+                        input.classList.remove("input-invalid");
+                        var msg_error = document.querySelector("p#p"+input.id);
+                        msg_error.classList.add("display-none");
+
+                        isError = false;
+                            
+                    }
+                  
+                }
+            }
+
+            function signin() {
+                    
+                var inputList = document.getElementsByClassName("myclass");
+
+                for (var input of inputList) {
+                    
+                    if (input.value.trim() == "") {
+                
+                        input.classList.add("input-invalid");
+                        
+                        var msg_error = document.querySelector("p#p"+input.id);
+                        msg_error.classList.remove("display-none");
+                        isError = true;
+                           
+                    }
+                    
+                    else if(input.id=="email" && isEmailInvalid()==true) {
+
+                        input.classList.add("input-invalid");
+                        
+                        var msg_error = document.querySelector("p#pemail");
+                        msg_error.classList.remove("display-none");
+                        isError = true;
+                    }
+
+                    else if(input.id=="pass" && isPasswordInvalid()==true) {
+
+                        input.classList.add("input-invalid");
+                        
+                        var msg_error = document.querySelector("p#ppass");
+                        msg_error.classList.remove("display-none");
+                        isError = true;
+                    }  
+
+                    else if(input.id=="z" && isZipInvalid()==true) {
+
+                        input.classList.add("input-invalid");
+
+                        var msg_error = document.querySelector("p#pz");
+                        msg_error.classList.remove("display-none");
+                        isError = true;
+                    } 
+                }  
+
+                var checkbox = document.getElementById("check");
+
+                if (isError == true || checkbox.checked == false) {
+                    // Show error
+                    alert("Form invalid, please check again!!!");
+                    return; 
+                }
+                else document.getElementById('myForm').submit();
+            }    
+        </script>
+    </body>
+</html>
