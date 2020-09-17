@@ -417,9 +417,8 @@
             });
 
             
-            // PRODUCT ARRANGEMENT
-            $('.form-control').on('change',function() {
-              
+
+            function sortArray(x) {
                 // PUT MONEY DATA IN AN ARRAY
                 var money_arr = [];
                 $('.product').each(function(index) {
@@ -431,37 +430,39 @@
                 });
                 // remove duplicate
                 var uniquePrizes = [];
-                $.each(money_arr, function(i, el){
+                $.each(money_arr, function(i, el) {
                     if($.inArray(el, uniquePrizes) === -1) uniquePrizes.push(el);
                 });
                 // SORT DATA
-                var increase_arr = uniquePrizes.slice().sort((a,b) => a-b);
-                var decrease_arr = uniquePrizes.slice().sort((a,b) => b-a);
+                if(x==0) return uniquePrizes.slice().sort((a,b) => a-b);
+                else if(x==1) return uniquePrizes.slice().sort((a,b) => b-a);
+            }
 
+            function sortProducts(x) {  
+                var sort_arr = [];
+                if(x=='increase') sort_arr = sortArray(0);
+                else if(x=='decrease') sort_arr = sortArray(1);
+
+                for(var i=0; i< sort_arr.length; i++) {
+                    $('#products').append($('.'+sort_arr[i]).show());
+                }
+            }
+
+            // PRODUCT ARRANGEMENT
+            $('.form-control').on('change',function() { 
                 var order_option = $(this).val();
                 $('.product').hide();
 
                 // iNCREASE OPTION
-                if(order_option == "Increase") {
-
-                    for(var i=0; i< uniquePrizes.length; i++) {
-                        $('#products').append($('.'+increase_arr[i]).show());
-                    }
-                }
+                if(order_option == "Increase") sortProducts("increase");
 
                 // DECREASE OPTION
-                if(order_option == "Decrease") {
-
-                    for(var i=0; i< uniquePrizes.length; i++) {
-                        $('#products').append($('.'+decrease_arr[i]).show());
-                    }
-                }
+                if(order_option == "Decrease") sortProducts("decrease");
 
                 // REMOVE SORT OPTION
                 if(order_option == "Order By") {
                     location.reload();
                 }
-
             });
         });
     </script>
