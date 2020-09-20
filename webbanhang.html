@@ -13,11 +13,12 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script
             src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <style>
-        .sale-off {
-            text-decoration: line-through;
-        }
-    </style>
+        <script src="https://kit.fontawesome.com/24a46fca59.js"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./css/webbanhang.css">
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
 
     <body>
@@ -90,10 +91,17 @@
                                 href="#">Disabled</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text"
+                    <div class="cart">
+                        <i class="fas fa-cart-plus" style="color: white;"></i>
+                        <div class="amount" style="color: white;
+                            background-color: red;">0</div>
+                    </div>
+                    <form class="form-inline my-2 my-lg-0" autocomplete="off">
+                        <input class="form-control mr-sm-2"
+                            type="text"
                             placeholder="Search" id="search">
-                        <button class="btn btn-success my-2 my-sm-0"
+                        <button
+                            class="btn btn-success my-2 my-sm-0"
                             type="button">Search</button>
                     </form>
                 </div>
@@ -102,7 +110,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Products</li>
+                    <li class="breadcrumb-item active"
+                        aria-current="page">Products</li>
                     <li class="offset-md-9">
                         <select class="form-control form-control-sm">
                             <option>Order By</option>
@@ -123,10 +132,15 @@
                         <div class="card-body">
                             <h4 class="card-title">Vuong 2017</h4>
                             <p class="card-text">
-                                <i class="sale-off">$1000</i> -> <i>$500</i>
+                                <i class="sale-off">$1000</i> -> <i>$850</i>
                             </p>
                             <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,7 +156,12 @@
                                 <i>$544</i>
                             </p>
                             <p>Long</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -155,10 +174,15 @@
                         <div class="card-body">
                             <h4 class="card-title">Iphone15</h4>
                             <p class="card-text">
-                                <i>$1000</i>
+                                <i>$2000</i>
                             </p>
                             <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -174,7 +198,12 @@
                                 <i>$1000</i>
                             </p>
                             <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -187,10 +216,15 @@
                         <div class="card-body">
                             <h4 class="card-title">Macbook 2017</h4>
                             <p class="card-text">
-                                <i class="sale-off">$1000</i> -> <i>$500</i>
+                                <i class="sale-off">$1500</i> -> <i>$500</i>
                             </p>
                             <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -206,7 +240,12 @@
                                 <i>$1000</i>
                             </p>
                             <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -219,10 +258,15 @@
                         <div class="card-body">
                             <h4 class="card-title">Iphone15</h4>
                             <p class="card-text">
-                                <i>$1000</i>
+                                <i>$1050</i>
                             </p>
                             <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,7 +282,12 @@
                                 <i>$1000</i>
                             </p>
                             <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -248,12 +297,121 @@
                             src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
                             alt="Card image" style="width:100%">
                         <div class="card-body">
-                            <h4 class="card-title">Macbook 2020</h4>
+                            <h4 class="card-title">Macbook Air</h4>
                             <p class="card-text">
                                 <i>$1000</i>
                             </p>
                             <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 mb-3 product">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
+                            alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">Iphone15</h4>
+                            <p class="card-text">
+                                <i>$30</i>
+                            </p>
+                            <p>Description</p>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 mb-3 product">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
+                            alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">Tâm</h4>
+                            <p class="card-text">
+                                <i>$1000</i>
+                            </p>
+                            <p>Description</p>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 mb-3 product">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
+                            alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">IphoneX</h4>
+                            <p class="card-text">
+                                <i>$1000</i>
+                            </p>
+                            <p>Description</p>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 mb-3 product">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
+                            alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">John Doe</h4>
+                            <p class="card-text">
+                                <i>$10000</i>
+                            </p>
+                            <p>Description</p>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 mb-3 product">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
+                            alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">Macbook 2019</h4>
+                            <p class="card-text">
+                                <i>$1000</i>
+                            </p>
+                            <p>Description</p>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -269,7 +427,12 @@
                                 <i>$1000</i>
                             </p>
                             <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -280,91 +443,17 @@
                             src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
                             alt="Card image" style="width:100%">
                         <div class="card-body">
-                            <h4 class="card-title">John Doe</h4>
+                            <h4 class="card-title">IPod</h4>
                             <p class="card-text">
-                                <i>$1000</i>
+                                <i>$7000</i>
                             </p>
                             <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3 mb-3 product">
-                    <div class="card">
-                        <img class="card-img-top"
-                            src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
-                            alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">Iphone15</h4>
-                            <p class="card-text">
-                                <i>$1000</i>
-                            </p>
-                            <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3 mb-3 product">
-                    <div class="card">
-                        <img class="card-img-top"
-                            src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
-                            alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">John Doe</h4>
-                            <p class="card-text">
-                                <i>$1000</i>
-                            </p>
-                            <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 mb-3 product">
-                    <div class="card">
-                        <img class="card-img-top"
-                            src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
-                            alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">Macbook 2020</h4>
-                            <p class="card-text">
-                                <i>$1000</i>
-                            </p>
-                            <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3 mb-3 product">
-                    <div class="card">
-                        <img class="card-img-top"
-                            src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
-                            alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">Iphone15</h4>
-                            <p class="card-text">
-                                <i>$1000</i>
-                            </p>
-                            <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3 mb-3 product">
-                    <div class="card">
-                        <img class="card-img-top"
-                            src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
-                            alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">John Doe</h4>
-                            <p class="card-text">
-                                <i>$1000</i>
-                            </p>
-                            <p>Description</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
+                            <div class="buy">
+                                <button class="btn btn-primary buy-btn">Buy</button>
+                                <input class="quantity"
+                                    type="number" min="0"
+                                    oninput="validity.valid||(value='');">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -382,23 +471,29 @@
                 </div>
                 <div class="col-sm-3">
                     <h3>Column 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing
+                    <p>Lorem ipsum dolor sit amet, consectetur
+                        adipisicing
                         elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation
+                    <p>Ut enim ad minim veniam, quis nostrud
+                        exercitation
                         ullamco laboris...</p>
                 </div>
                 <div class="col-sm-3">
                     <h3>Column 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing
+                    <p>Lorem ipsum dolor sit amet, consectetur
+                        adipisicing
                         elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation
+                    <p>Ut enim ad minim veniam, quis nostrud
+                        exercitation
                         ullamco laboris...</p>
                 </div>
                 <div class="col-sm-3">
                     <h3>Column 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing
+                    <p>Lorem ipsum dolor sit amet, consectetur
+                        adipisicing
                         elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation
+                    <p>Ut enim ad minim veniam, quis nostrud
+                        exercitation
                         ullamco laboris...</p>
                 </div>
             </div>
@@ -416,26 +511,19 @@
                 }).hide();
             });
 
-            
-
             function sortArray(x) {
                 // PUT MONEY DATA IN AN ARRAY
                 var money_arr = [];
                 $('.product').each(function(index) {
-                    var prize = $(this).children('.card').children('.card-body').children('.card-text').text();
+                    var prize = $(this).find('.card-text').text();
                     var last$_position= prize.lastIndexOf('$');
-                    var money = prize.substring(last$_position+1,prize.length-1);  
+                    var money = prize.substring(last$_position+1);  
                     $(this).addClass(money);
-                    money_arr.push(Number(money));                
-                });
-                // remove duplicate
-                var uniquePrizes = [];
-                $.each(money_arr, function(i, el) {
-                    if($.inArray(el, uniquePrizes) === -1) uniquePrizes.push(el);
+                    money_arr.push(money);                
                 });
                 // SORT DATA
-                if(x==0) return uniquePrizes.slice().sort((a,b) => a-b);
-                else if(x==1) return uniquePrizes.slice().sort((a,b) => b-a);
+                if(x==0) return money_arr.slice().sort((a,b) => a-b);
+                else if(x==1) return money_arr.slice().sort((a,b) => b-a);
             }
 
             function sortProducts(x) {  
@@ -464,6 +552,27 @@
                     location.reload();
                 }
             });
+
+            $('.buy-btn').click(function(){
+                var getAmount = Number($('.amount').val());
+                getAmount+=Number($(this).siblings('.quantity').val());
+                $('.amount').val(getAmount);
+                $('.amount').text(getAmount);
+            });
+
+            $(function() {
+            var product_data = [];
+            $('.card-title').each(function(index,value) {
+                product_data[index] = $(this).text();  
+            });
+            var unique_arr = [];
+            $.each(product_data, function(i, el){
+                if($.inArray(el, unique_arr) === -1) unique_arr.push(el);
+            });
+            $( "#search" ).autocomplete({
+               source: unique_arr
+            });
+         });
         });
     </script>
     </body>
