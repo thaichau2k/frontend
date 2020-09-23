@@ -81,3 +81,21 @@
 .ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
   margin: -1px;
 }
+
+table {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+  border-style: hidden;
+  text-align: center;
+}
+
+th {
+  font-weight: bold;
+  color: #343a40;
+  border: 1px solid;
+}
+
+td {
+  border: 1px solid;
+}
