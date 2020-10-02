@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap
+      contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Award-winning Films</title>
+
+    <link rel="canonical"
+      href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/24a46fca59.js"
+      crossorigin="anonymous"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/project.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top
+        justify-content-between">
+        <a class="navbar-brand font-weight-bold"
+          href="./homepage.html"
+          style="color:red;">
+          NETFLIX AND CHILL</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#"
+                id="navbarDropdown" style="color: red;"
+                role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                GENRE
+              </a>
+              <div class="dropdown-menu"
+                aria-labelledby="navbarDropdown">
+                <div class="row">
+                  <div class="col-lg-4 dropdown-col">
+                    <a class="dropdown-item red" href="#">Action movies</a>
+                    <a class="dropdown-item red" href="#">Comedies</a>
+                    <a class="dropdown-item red" href="#">Dramas</a>
+                    <a class="dropdown-item red" href="./award-winning.html">Award-Winning
+                      movies</a>
+                    <a class="dropdown-item red" href="#">Martial arts movies</a>
+                  </div>
+                  <div class="col-lg-4 dropdown-col">
+                    <a class="dropdown-item red" href="#">Science-fiction movies</a>
+                    <a class="dropdown-item red" href="#">Horror/Thriller movies</a>
+                    <a class="dropdown-item red" href="#">Romance movies</a>
+                    <a class="dropdown-item red" href="#">New Releases</a>
+                    <a class="dropdown-item red" href="#">Musicals</a>
+                  </div>
+                  <div class="col-lg-4 dropdown-col">
+                    <a class="dropdown-item red" href="#">Animation movies</a>
+                    <a class="dropdown-item red" href="#">Documentaries</a>
+                    <a class="dropdown-item red" href="#">Crime movies</a>
+                    <a class="dropdown-item red" href="#">TV Series</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline mt-md-0 col-lg-5"
+            onsubmit="submit_btn()">
+            <input class="form-control mr-sm-1 col-md-10"
+              id="searchbox"
+              type="text"
+              placeholder="Search for Award-Winning films..."
+              aria-label="Search">
+            <button class="btn btn-outline-danger my-1 my-sm-1"
+              type="submit">Search</button>
+          </form>
+          <a href="./sign-in.html"> <i class="fa fa-sign-out text-danger
+              font-20" aria-hidden="true" onclick="signOut()"></i> </a>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+      <div class="awpage">
+        <h4 class="mt-4">Award-Winning Films</h4>
+        <div class="row awardwinning">
+        </div><!-- /.row-->
+
+        <!--PAGINATION-->
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-end">
+            <li class="page-item" id="prev">
+              <a class="page-link" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item pagin active"><a class="page-link">1</a></li>
+            <li class="page-item pagin"><a class="page-link">2</a></li>
+            <li class="page-item pagin"><a class="page-link">3</a></li>
+            <li class="page-item" id="next">
+              <a class="page-link" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div id="search_result1"></div>
+
+
+    </main>
+    <!-- FOOTER -->
+    <footer class="container mt-4 pt-5 mb-0">
+      <p class="float-right"><a href="#">Back to top</a></p>
+      <p>&copy; 2017-2020 Company, Inc. &middot;
+        <a href="">Privacy</a> &middot;
+        <a href="">Terms</a></p>
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        //DATA
+        var awardWinningList = ['12angryman', 'bladerunner2049', 'birdman', 'inthemoodforlove', 'nocountryforoldmen', 'thedarkknight', 'parasite', 
+        'onceuponatimeinhollywood', 'thegrandbudapesthotel', '1917', 'pulpfiction', 'crouchingtigerhiddendragon', 'gladiator', 'manchesterbythesea', 'rango', 
+        'shoplifters', 'spidermanintothespiderverse', 'thelordoftherings', 'therewillbeblood', 'thesilenceofthelambs', 'walktheline', 'avengerendgame',
+        'jojorabbit', 'ladybird', 'sicario', 'chungkingexpress', 'solaris', 'spotlight', 'thegrandmaster', 'thegodfatherpart2', 'thelionking',
+        'spiderman2', 'goodfellas', 'dunkirk', 'deadpoetsociety', 'boyhood', 'zootopia', 'inception', 'inglouriousbasterds'];
+
+        //INIT PAGE       
+        var active_number = $('.active').text();
+        createPage();
+
+        //PAGINATION
+        $('.pagin').click(function(){
+          $('.pagin').removeClass('active');
+          $(this).addClass('active');
+          active_number = $(this).text();
+          createPage();
+        });
+        $('#prev').click(function(){
+          if($('.active').text()==1) return false;
+          var currPag = $('.active').prev();
+          $('.active').removeClass('active');
+          currPag.addClass('active');
+          active_number = $('.active').text();
+          createPage();
+        })
+        $('#next').click(function(){
+          if($('.active').text()==3) return false;
+          var currPag = $('.active').next();
+          $('.active').removeClass('active');
+          currPag.addClass('active');
+          active_number = $('.active').text();
+          createPage();
+        });
+        function createPage() {
+          $('.awardwinning').empty();
+          awardWinningList.forEach(function(value, index) {
+            if(index < 16*active_number && index >= 16*(active_number-1)) $('.awardwinning').append(createCard(value));
+          });
+        }
+     
+       
+        // SEARCH BAR
+        $("#searchbox").keyup(function() {
+          var data=$("#searchbox").val();
+          var filter_data = data.replace(/\s/g, "").toUpperCase();
+
+          if(data == "") {
+            $('#search_result1').hide();
+            $('.awpage').show();
+          }
+          else {
+            $('#search_result1').empty();
+            $('.awpage').hide();
+            $("#search_result1").append("<p>Result for \""+data+"\" </p>"); 
+            $("#search_result1").append("<div class=\"row search-row mb-3 mt-3\">   </div>");
+        
+            awardWinningList.forEach(function(value) {
+         
+              if (value.toUpperCase().indexOf(filter_data) > -1) { 
+                var search_cards = createCard(value);
+                $(".search-row").append(search_cards);
+              }
+            });
+          }
+        });
+
+
+
+        // CREATE CARDS
+        function createCard(value) {
+          return "<div class=\"col-lg-3 mb-4\"> <div class=\"card bg-danger\" id=\""+value+"\" style=\"width: 17rem;\">\
+                <a href=\"./"+value+".html\">\
+                <img class=\"card-img-top\" src=\"./image/"+value+".jpg\">\
+                </a>\
+                </div> </div> "
+        }
+      });
+    </script>
+  </body>
+</html>
